@@ -1,5 +1,5 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+
+import {  useState } from "react";
 import { Toaster } from "react-hot-toast";
 import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import useAdmin from "../../Hook/useAdmin";
@@ -45,31 +45,6 @@ const Dashboard = () => {
     setSidebarOpen(!sidebarOpen);
   };
 
-  /*
-  useEffect(() => {
-    const fetchUsers = async () => {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        navigate("/login");
-        return;
-      }
-      try {
-        const response = await axios.get("http://localhost:5000/api/users", {
-          headers: {
-            Authorization: token,
-          },
-        });
-        setUsers(response.data);
-      } catch (error) {
-        alert("Failed to fetch users");
-      }
-    };
-
-    fetchUsers();
-  }, [navigate]);
-
-  console.log(users);
-   */
 
   const handleLogout = () => {
     localStorage.removeItem("token"); // Remove token from local storage
@@ -84,28 +59,12 @@ const Dashboard = () => {
 
   return (
     <>
-      {/* <h2 className="text-2xl font-bold mb-4">Dashboard</h2>
-      <p>Your balance is: Taka</p>
-      <button
-        onClick={handleLogout}
-        className="mt-4 bg-red-600 text-white p-2 rounded"
-      >
-        Logout
-      </button>
-      <h3 className="text-xl font-bold mt-6 mb-4">All Users</h3>
-      <ul>
-        {users.map((user) => (
-          <li key={user._id} className="border p-2 mb-2 rounded">
-            {user.name} - {user.email} - {user.balance} Taka
-          </li>
-        ))}
-      </ul> */}
       <div className="relative">
         {/* dashboard side bar */}
         <div
           className={` ${
             sidebarOpen ? "translate-x-0" : "-translate-x-[450px]"
-          } w-32 md:w-64 min-h-screen bg-[#341f97] text-white   absolute   md:px-10 py-8  transform transition-transform ease-in-out duration-500 z-50`}
+          } w-32 md:w-64 min-h-screen bg-gradient-to-r from-violet-800 to-fuchsia-800 text-white   absolute   md:px-10 py-8  transform transition-transform ease-in-out duration-500 z-50`}
         >
           <ul className="menu p-4">
             <li>
@@ -206,12 +165,6 @@ const Dashboard = () => {
         </label>
         {/* dashboard content */}
         <div className="p-8 w-full min-h-screen bg-gray-700  text-white">
-          {/* <button
-        onClick={toggleSidebar}
-        className="lg:hidden p-2 bg-colorPrimary text-white rounded-md focus:outline-none"
-      >
-        {sidebarOpen ? 'Close Sidebar' : 'Open Sidebar'}
-      </button> */}
           <div className="w-3/5 mx-auto">
             <Outlet />
             <Toaster />
