@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import useCurrentUser from './../../Hook/useCurrentUser';
 import { useState } from 'react';
 import Swal from 'sweetalert2';
+import { GiReceiveMoney } from 'react-icons/gi';
 
 const CashIn = () => {
   const { data: user, error: userError, isLoading: userLoading } = useCurrentUser();
@@ -40,7 +41,8 @@ const CashIn = () => {
 
   return (
     <div className="flex items-center justify-center">
-      <div className="bg-gray-800 shadow-lg rounded-lg p-8 max-w-md w-full text-center">
+      <div className=" shadow-lg rounded-lg p-8 max-w-md w-full text-center bg-gradient-to-r  from-violet-800 to-fuchsia-800">
+      <div className='flex items-center justify-center py-2 text-7xl text-green-600'><GiReceiveMoney /></div>
         <h1 className="text-3xl font-bold text-white mb-4">Cash In</h1>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
@@ -48,7 +50,8 @@ const CashIn = () => {
             <input
               type="email"
               {...register('agentEmail', { required: true })}
-              className="w-full px-4 py-2 mt-2 bg-gray-900 text-white rounded"
+              placeholder='Agent Email'
+              className="border border-gray-300 px-3 py-2 rounded-md w-full focus:outline-none focus:border-blue-500 bg-transparent mt-2 "
             />
             {errors.agentEmail && <p className="text-red-500">Agent email is required</p>}
           </div>
@@ -57,14 +60,15 @@ const CashIn = () => {
             <input
               type="number"
               {...register('amount', { required: true, min: 1 })}
-              className="w-full px-4 py-2 mt-2 bg-gray-900 text-white rounded"
+              placeholder='Type Amount'
+              className="border border-gray-300 px-3 py-2 rounded-md w-full focus:outline-none focus:border-blue-500 bg-transparent mt-2"
             />
             {errors.amount && errors.amount.type === 'required' && <p className="text-red-500">Amount is required</p>}
             {errors.amount && errors.amount.type === 'min' && <p className="text-red-500">Amount must be at least 1</p>}
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300"
+            className="bg-gradient-to-r from-purple-500 to-pink-500 w-full text-white py-2 px-4 rounded-md transition-colors duration-300"
           >
             Send Cash-in Request
           </button>

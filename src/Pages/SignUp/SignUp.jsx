@@ -30,7 +30,7 @@ const SignUp = () => {
       className="min-h-screen flex items-center justify-center bg-cover bg-center"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
-      <div className="max-w-md w-full bg-white p-6 rounded-lg shadow-md bg-gradient-to-r  from-violet-800 to-fuchsia-800 text-white">
+      <div className="max-w-md w-full bg-white p-6 rounded-lg shadow-md bg-gradient-to-r  from-violet-800 to-fuchsia-800 text-white m-5">
         <Toaster />
         <div>
           <img src={logo} alt="" className="w-3/6 mx-auto py-6"/>

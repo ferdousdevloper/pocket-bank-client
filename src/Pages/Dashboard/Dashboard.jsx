@@ -205,7 +205,7 @@ const Dashboard = () => {
         </label>
         {/* dashboard content */}
         <div className="p-8 w-full min-h-screen text-white">
-          <div className="w-3/5 mx-auto">
+          <div className="md:w-3/5 mx-auto">
             <Outlet />
             <Toaster />
           </div>
