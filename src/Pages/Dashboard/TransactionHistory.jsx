@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FaArrowUp, FaArrowDown } from 'react-icons/fa';
 import useCurrentUser from '../../Hook/useCurrentUser';
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 const TransactionHistory = () => {
   const { data: user, error, isLoading } = useCurrentUser();
@@ -29,7 +30,9 @@ const TransactionHistory = () => {
   }, [user, currentPage]);
 
   const handlePageChange = (page) => {
-    setCurrentPage(page);
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
   };
 
   if (isLoading) return <div className="flex justify-center items-center h-screen text-white">Loading...</div>;
@@ -37,11 +40,11 @@ const TransactionHistory = () => {
 
   return (
     <div className="flex items-center justify-center">
-      <div className="bg-gray-800 shadow-lg rounded-lg p-8 w-full">
+      <div className="shadow-lg rounded-lg p-8 w-full bg-gradient-to-r from-violet-800 to-fuchsia-800">
         <h1 className="text-3xl font-bold text-white mb-4">Transaction History</h1>
         <div className="space-y-4">
           {transactions.map((transaction, index) => (
-            <div key={index} className="bg-gray-900 p-4 rounded text-white flex items-center">
+            <div key={index} className="p-4 rounded text-white flex items-center bg-gradient-to-r from-violet-900 to-fuchsia-900">
               {transaction.senderEmail === user.email ? (
                 <FaArrowUp className="text-red-500 mr-6 text-3xl" />
               ) : (
@@ -59,16 +62,32 @@ const TransactionHistory = () => {
         </div>
 
         {/* Pagination */}
-        <div className="flex justify-center mt-4">
-          {Array.from({ length: totalPages }, (_, index) => (
-            <button
-              key={index}
-              onClick={() => handlePageChange(index + 1)}
-              className={`px-3 py-1 mx-1 rounded ${currentPage === index + 1 ? 'bg-blue-500 text-white' : 'bg-gray-500 text-gray-300 hover:bg-gray-600'}`}
-            >
-              {index + 1}
-            </button>
-          ))}
+        <div className="flex justify-center mt-4 space-x-1">
+          <button
+            onClick={() => handlePageChange(currentPage - 1)}
+            className={`px-3 py-1 mx-1 rounded ${
+              currentPage === 1 ? 'bg-fuchsia-500 text-gray-300 cursor-not-allowed' : 'bg-fuchsia-500 text-gray-300 hover:bg-fuchsia-700'
+            }`}
+            disabled={currentPage === 1}
+          >
+            <MdKeyboardArrowLeft />
+          </button>
+
+          <button
+            className="px-3 py-1 mx-1 rounded bg-gradient-to-r from-violet-900 to-fuchsia-900 text-white"
+          >
+            {currentPage}
+          </button>
+
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            className={`px-3 py-1 mx-1 rounded ${
+              currentPage === totalPages ? 'bg-fuchsia-500 text-gray-300 cursor-not-allowed' : 'bg-fuchsia-500 text-gray-300 hover:bg-fuchsia-700'
+            }`}
+            disabled={currentPage === totalPages}
+          >
+            <MdKeyboardArrowRight />
+          </button>
         </div>
       </div>
     </div>

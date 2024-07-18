@@ -9,9 +9,9 @@ const BalanceInquiry = () => {
     if (isLoading) return <div className="flex justify-center items-center h-screen">Loading...</div>;
     if (error) return <div className="flex justify-center items-center h-screen">Error: {error.message}</div>;
     return (
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center ">
             {user && (
-                <div className="bg-gray-800 shadow-lg rounded-lg p-8 w-full text-center">
+                <div className="bg-gray-800 shadow-lg rounded-lg p-8 w-full text-center bg-gradient-to-r  from-violet-800 to-fuchsia-800">
                     <div className="flex justify-center mb-4">
                         <TbCoinTakaFilled className="text-green-400 text-6xl" />
                     </div>

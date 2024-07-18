@@ -70,15 +70,15 @@ const Dashboard = () => {
             <img src={logo} alt="" className="" />
           </div>
           <ul className="menu p-4 ">
-            <li className="my-4">
+            <li className="my-4 bg-gradient-to-r p-2 rounded-lg  from-violet-900 to-fuchsia-900">
               <NavLink to="/dashboard">Overview</NavLink>
             </li>
             {isAdmin ? (
               <>
-                <li className="my-4">
+                <li className="my-4 bg-gradient-to-r p-2 rounded-lg  from-violet-900 to-fuchsia-900">
                   <Link to="/dashboard/userManagement">User Management</Link>
                 </li>
-                <li className="my-4">
+                <li className="my-4 bg-gradient-to-r p-2 rounded-lg  from-violet-900 to-fuchsia-900">
                   <NavLink to="/dashboard/systemMonitoring">
                     System Monitoring
                   </NavLink>
@@ -88,18 +88,18 @@ const Dashboard = () => {
               <>
                 {isPending ? (
                   <>
-                    <p className="text-yellow-500 my-4">
-                      Youre account is pending....
+                    <p className="text-yellow-500 my-4 bg-gradient-to-r p-2 rounded-lg  from-violet-900 to-fuchsia-900">
+                      Your account is pending....
                     </p>
-                    <p className="text-yellow-500 my-4">
-                      Youre account will be active in few hours!!
+                    <p className="text-yellow-500 my-4 bg-gradient-to-r p-2 rounded-lg  from-violet-900 to-fuchsia-900">
+                      Your account will be active in few hours!!
                     </p>
                   </>
                 ) : (
                   <>
                     {isBlock ? (
                       <>
-                        <p className="text-red-600 my-4">
+                        <p className="text-red-600 my-4 bg-gradient-to-r p-2 rounded-lg  from-violet-900 to-fuchsia-900">
                           Youre Blocked By Admin!!
                         </p>
                       </>
@@ -107,7 +107,7 @@ const Dashboard = () => {
                       <>
                         {isAgent ? (
                           <>
-                            <li className="my-4">
+                            <li className="my-4 bg-gradient-to-r p-2 rounded-lg  from-violet-900 to-fuchsia-900">
                               <NavLink
                                 to="/dashboard/transactionManagement"
                                 activeClassName="text-blue-400"
@@ -115,7 +115,7 @@ const Dashboard = () => {
                                 Transaction Management
                               </NavLink>
                             </li>
-                            <li className="my-4">
+                            <li className="my-4 bg-gradient-to-r p-2 rounded-lg  from-violet-900 to-fuchsia-900">
                               <NavLink
                                 to="/dashboard/balanceInquiry"
                                 activeClassName="text-blue-400"
@@ -123,7 +123,7 @@ const Dashboard = () => {
                                 Balance Inquiry
                               </NavLink>
                             </li>
-                            <li className="my-4">
+                            <li className="my-4 bg-gradient-to-r p-2 rounded-lg  from-violet-900 to-fuchsia-900">
                               <NavLink
                                 to="/dashboard/transactionHistory"
                                 activeClassName="text-blue-400"
@@ -134,7 +134,7 @@ const Dashboard = () => {
                           </>
                         ) : (
                           <>
-                            <li className="my-4">
+                            <li className="my-4 bg-gradient-to-r p-2 rounded-lg  from-violet-900 to-fuchsia-900">
                               <NavLink
                                 to="/dashboard/sendMoney"
                                 activeClassName="text-blue-400"
@@ -142,7 +142,7 @@ const Dashboard = () => {
                                 Send Money
                               </NavLink>
                             </li>
-                            <li className="my-4">
+                            <li className="my-4 bg-gradient-to-r p-2 rounded-lg  from-violet-900 to-fuchsia-900">
                               <NavLink
                                 to="/dashboard/cashOut"
                                 activeClassName="text-blue-400"
@@ -150,7 +150,7 @@ const Dashboard = () => {
                                 Cash Out
                               </NavLink>
                             </li>
-                            <li className="my-4">
+                            <li className="my-4 bg-gradient-to-r p-2 rounded-lg  from-violet-900 to-fuchsia-900">
                               <NavLink
                                 to="/dashboard/cashIn"
                                 activeClassName="text-blue-400"
@@ -158,7 +158,7 @@ const Dashboard = () => {
                                 Cash In
                               </NavLink>
                             </li>
-                            <li className="my-4">
+                            <li className="my-4 bg-gradient-to-r p-2 rounded-lg  from-violet-900 to-fuchsia-900">
                               <NavLink
                                 to="/dashboard/balanceInquiry"
                                 activeClassName="text-blue-400"
@@ -166,7 +166,7 @@ const Dashboard = () => {
                                 Balance Inquiry
                               </NavLink>
                             </li>
-                            <li className="my-4">
+                            <li className="my-4 bg-gradient-to-r p-2 rounded-lg  from-violet-900 to-fuchsia-900">
                               <NavLink
                                 to="/dashboard/transactionHistory"
                                 activeClassName="text-blue-400"

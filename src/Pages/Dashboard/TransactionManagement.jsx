@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 const TransactionManagement = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -73,7 +74,9 @@ const TransactionManagement = () => {
   };
 
   const handlePageChange = (page) => {
-    setCurrentPage(page);
+    if (page >= 1 && page <= data.totalPages) {
+      setCurrentPage(page);
+    }
   };
 
   useEffect(() => {
@@ -92,13 +95,13 @@ const TransactionManagement = () => {
 
   return (
     <div className="container mx-auto mt-8">
-      <h1 className="text-3xl font-bold text-white mb-4">Agent Transactions</h1>
-      <div className="grid grid-cols-1 gap-4">
+      <div className="grid grid-cols-1 gap-4 bg-gradient-to-r from-violet-800 to-fuchsia-800 p-8 rounded-lg">
+        <h1 className="text-3xl font-bold text-white mb-4">Agent Transactions</h1>
         {data.cashInRequests.length === 0 && <p className="text-white">No cash-in requests found</p>}
         {data.cashInRequests.map(request => (
-          <div key={request._id} className="bg-gray-800 p-4 rounded-lg shadow-lg">
+          <div key={request._id} className="p-4 rounded-lg shadow-lg bg-gradient-to-r from-violet-900 to-fuchsia-900">
             <p className="text-white"><strong>User:</strong> {request.user}</p>
-            <p className="text-white"><strong>Amount:</strong> ${request.amount}</p>
+            <p className="text-white"><strong>Amount:</strong> {request.amount} TK</p>
             <p className="text-white"><strong>Status:</strong> {request.status}</p>
             {request.status === 'pending' && (
               <div className="mt-4 space-x-2">
@@ -121,16 +124,30 @@ const TransactionManagement = () => {
       </div>
 
       {/* Pagination */}
-      <div className="flex justify-center mt-4">
-        {Array.from({ length: data.totalPages }, (_, index) => (
-          <button
-            key={index}
-            onClick={() => handlePageChange(index + 1)}
-            className={`px-3 py-1 mx-1 rounded ${currentPage === index + 1 ? 'bg-blue-500 text-white' : 'bg-gray-500 text-gray-300 hover:bg-gray-600'}`}
-          >
-            {index + 1}
-          </button>
-        ))}
+      <div className="flex justify-center mt-4 space-x-1">
+        <button
+          onClick={() => handlePageChange(currentPage - 1)}
+          className={`px-3 py-1 mx-1 rounded ${
+            currentPage === 1 ? 'bg-fuchsia-500 text-gray-300 cursor-not-allowed' : 'bg-fuchsia-500 text-gray-300 hover:bg-fuchsia-700'
+          }`}
+          disabled={currentPage === 1}
+        >
+          <MdKeyboardArrowLeft />
+        </button>
+
+        <button className="px-3 py-1 mx-1 rounded bg-gradient-to-r from-violet-900 to-fuchsia-900 text-white">
+          {currentPage}
+        </button>
+
+        <button
+          onClick={() => handlePageChange(currentPage + 1)}
+          className={`px-3 py-1 mx-1 rounded ${
+            currentPage === data.totalPages ? 'bg-fuchsia-500 text-gray-300 cursor-not-allowed' : 'bg-fuchsia-500 text-gray-300 hover:bg-fuchsia-700'
+          }`}
+          disabled={currentPage === data.totalPages}
+        >
+          <MdKeyboardArrowRight />
+        </button>
       </div>
     </div>
   );
