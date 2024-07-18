@@ -7,7 +7,7 @@ const fetchUserByEmail = async (email) => {
     throw new Error("No token found");
   }
 
-  const response = await axios.get(`http://localhost:5000/api/users/email/${email}`, {
+  const response = await axios.get(`https://mfs-backend-sigma.vercel.app/api/users/email/${email}`, {
     headers: {
       Authorization: token,
     },

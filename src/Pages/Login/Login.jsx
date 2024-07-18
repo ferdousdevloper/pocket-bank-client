@@ -12,7 +12,7 @@ const Login = () => {
 
     const onSubmit = async (data) => {
         try {
-            const response = await axios.post('http://localhost:5000/api/login', data);
+            const response = await axios.post('https://mfs-backend-sigma.vercel.app/api/login', data);
             console.log(response.data);
             Swal.fire({
                 title: "Login Successfully!",

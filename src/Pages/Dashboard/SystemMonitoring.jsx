@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 const fetchTransactions = async ({ queryKey }) => {
   const [_key, { page }] = queryKey;
   const token = localStorage.getItem('token');
-  const response = await axios.get(`http://localhost:5000/api/all-transactions?page=${page}&limit=3`, {
+  const response = await axios.get(`https://mfs-backend-sigma.vercel.app/api/all-transactions?page=${page}&limit=3`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },

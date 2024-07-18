@@ -11,7 +11,7 @@ const TransactionManagement = () => {
 
   const fetchCashInRequests = async (page) => {
     try {
-      const response = await axios.get('http://localhost:5000/api/cash-in-requests', {
+      const response = await axios.get('https://mfs-backend-sigma.vercel.app/api/cash-in-requests', {
         params: { page },
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -27,7 +27,7 @@ const TransactionManagement = () => {
 
   const handleApprove = async (requestId) => {
     try {
-      await axios.put(`http://localhost:5000/api/manage-cash-in-request/${requestId}`, {
+      await axios.put(`https://mfs-backend-sigma.vercel.app/api/manage-cash-in-request/${requestId}`, {
         action: 'approve'
       }, {
         headers: {
@@ -51,7 +51,7 @@ const TransactionManagement = () => {
 
   const handleReject = async (requestId) => {
     try {
-      await axios.put(`http://localhost:5000/api/manage-cash-in-request/${requestId}`, {
+      await axios.put(`https://mfs-backend-sigma.vercel.app/api/manage-cash-in-request/${requestId}`, {
         action: 'reject'
       }, {
         headers: {

@@ -11,7 +11,7 @@ const fetchUsers = async (search, page) => {
     throw new Error("No token found");
   }
 
-  const response = await axios.get(`http://localhost:5000/api/users`, {
+  const response = await axios.get(`https://mfs-backend-sigma.vercel.app/api/users`, {
     params: { search, page },
     headers: {
       Authorization: `Bearer ${token}`,
@@ -57,7 +57,7 @@ const UserManagement = () => {
   };
 
   const handleStatusActive = (user) => {
-    axios.patch(`http://localhost:5000/api/users/status/${user._id}`).then((res) => {
+    axios.patch(`https://mfs-backend-sigma.vercel.app/api/users/status/${user._id}`).then((res) => {
       if (res.data.modifiedCount > 0) {
         refetch();
         toast.success("Successfully user active");
@@ -66,7 +66,7 @@ const UserManagement = () => {
   };
 
   const handleMakeBlock = (user) => {
-    axios.patch(`http://localhost:5000/api/users/block/${user._id}`).then((res) => {
+    axios.patch(`https://mfs-backend-sigma.vercel.app/api/users/block/${user._id}`).then((res) => {
       if (res.data.modifiedCount > 0) {
         refetch();
         toast.success("Successfully user Blocked");
@@ -75,7 +75,7 @@ const UserManagement = () => {
   };
 
   const handleMakeActive = (user) => {
-    axios.patch(`http://localhost:5000/api/users/active/${user._id}`).then((res) => {
+    axios.patch(`https://mfs-backend-sigma.vercel.app/api/users/active/${user._id}`).then((res) => {
       if (res.data.modifiedCount > 0) {
         refetch();
         toast.success("Successfully user Active");

@@ -11,7 +11,7 @@ const useBlockUser = () => {
             if (!token) {
                 throw new Error('User not authenticated');
             }
-            const response = await axios.get(`http://localhost:5000/api/user/block/${email}`, {
+            const response = await axios.get(`https://mfs-backend-sigma.vercel.app/api/user/block/${email}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

@@ -12,7 +12,7 @@ const CashIn = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/cash-in-request', {
+      const response = await axios.post('https://mfs-backend-sigma.vercel.app/api/cash-in-request', {
         agentEmail: data.agentEmail,
         amount: parseFloat(data.amount),
       }, {

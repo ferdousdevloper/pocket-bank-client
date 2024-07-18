@@ -15,7 +15,7 @@ const TransactionHistory = () => {
       if (!user) return;
 
       try {
-        const response = await axios.get(`http://localhost:5000/api/transactions`, {
+        const response = await axios.get(`https://mfs-backend-sigma.vercel.app/api/transactions`, {
           params: { email: user.email, page: currentPage },
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         });

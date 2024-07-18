@@ -17,7 +17,7 @@ const CashOut = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/api/cash-out', {
+      const response = await axios.post('https://mfs-backend-sigma.vercel.app/api/cash-out', {
         agentEmail: data.agentEmail,
         amount: parseFloat(data.amount),
         pin: data.pin,

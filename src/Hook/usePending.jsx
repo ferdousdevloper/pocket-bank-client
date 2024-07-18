@@ -12,7 +12,7 @@ const usePending = () => {
             if (!token) {
                 throw new Error('User not authenticated');
             }
-            const response = await axios.get(`http://localhost:5000/api/user/status/${email}`, {
+            const response = await axios.get(`https://mfs-backend-sigma.vercel.app/api/user/status/${email}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

@@ -17,7 +17,7 @@ const SendMoney = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/api/send-money', {
+      const response = await axios.post('https://mfs-backend-sigma.vercel.app/api/send-money', {
         senderEmail: user.email,
         recipientEmail: data.recipientEmail,
         amount: parseFloat(data.amount),

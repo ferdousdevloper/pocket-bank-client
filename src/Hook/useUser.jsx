@@ -12,7 +12,7 @@ const useUser = () => {
             if (!token) {
                 throw new Error('User not authenticated');
             }
-            const response = await axios.get(`http://localhost:5000/api/user/agent/${email}`, {
+            const response = await axios.get(`https://mfs-backend-sigma.vercel.app/api/user/agent/${email}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
