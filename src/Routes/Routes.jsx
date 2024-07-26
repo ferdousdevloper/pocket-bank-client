@@ -16,6 +16,10 @@ import CashIn from "../Pages/Dashboard/CashIn";
 
 const Router = createBrowserRouter([
   {
+    path: "/",
+    element: <Login></Login>,
+  },
+  {
     path: "/login",
     element: <Login></Login>,
   },
