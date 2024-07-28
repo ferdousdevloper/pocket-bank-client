@@ -206,7 +206,9 @@ const Dashboard = () => {
         {/* dashboard content */}
         <div className="p-8 w-full min-h-screen text-white">
           <div className="md:w-3/5 mx-auto">
+          <h1 className="flex items-center justify-center text-6xl font-black bg-gradient-to-b  from-gray-100 to-fuchsia-900 text-transparent bg-clip-text">POCKET BANK</h1>
             <Outlet />
+            
             <Toaster />
           </div>
         </div>

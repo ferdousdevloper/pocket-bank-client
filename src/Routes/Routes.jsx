@@ -16,10 +16,6 @@ import CashIn from "../Pages/Dashboard/CashIn";
 
 const Router = createBrowserRouter([
   {
-    path: "/",
-    element: <Login></Login>,
-  },
-  {
     path: "/login",
     element: <Login></Login>,
   },
@@ -28,7 +24,7 @@ const Router = createBrowserRouter([
     element: <SignUp></SignUp>,
   },
   {
-    path: "/dashboard",
+    path: "/",
     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
